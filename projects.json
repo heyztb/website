@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+    "id": 1,
+    "name": "Project 1",
+    "description": "I built a small art wall powered by the Solana blockchain where any user on the blockchain can submit art and receive tips in SOL for their contribution.",
+    "url": "https://example.com",
+    "repo": "https://github.com/heyztb/examplerepo"
+    },
+    {
+    "id": 2,
+    "name": "Project 1",
+    "description": "I built a small art wall powered by the Solana blockchain where any user on the blockchain can submit art and receive tips in SOL for their contribution.",
+    "url": "https://example.com",
+    "repo": "https://github.com/heyztb/examplerepo"
+    },
+    {
+    "id": 3,
+    "name": "Project 1",
+    "description": "I built a small art wall powered by the Solana blockchain where any user on the blockchain can submit art and receive tips in SOL for their contribution.",
+    "url": "https://example.com",
+    "repo": "https://github.com/heyztb/examplerepo"
+    }
+  ]
+}
