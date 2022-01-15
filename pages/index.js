@@ -1,27 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useState, useEffect } from 'react';
 import profilePic from '../public/profile.jpg';
-import projects from '../projects.json';
 import Project from '../components/Project';
-export default function Home() {
-
-  const [projectList, setProjectList] = useState([])
-
-  const getProjectList = () => {
-    setProjectList(projects.projects)
-  }
-
-  useEffect(() => {
-    const onLoad = async () => {
-      getProjectList();
-    }
-    window.addEventListener('load', onLoad);
-    return () => {
-      window.removeEventListener('load', onLoad)
-    }
-  }, [])
-
+import projectList from '../projects.json';
+export default function Home({ projects }) {
   return (
     <div>
       <Head>
@@ -52,7 +34,7 @@ export default function Home() {
           </div>
           <div className="pt-10 mx-auto w-[66%] border-b shadow-neutral-50 shadow-sm"></div>
           <div className='pt-10 pb-10 w-full grid grid-cols-1 space-y-6'>
-            {projectList.map((project) => {
+            {projects.map((project) => {
               return (
                 <Project key={project.id} name={project.name} description={project.description} url={project.url} repo={project.repo} />
               )
@@ -65,4 +47,8 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  return { props: { projects: projectList.projects }}
 }
