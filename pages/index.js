@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import profilePic from '../public/profile.jpg';
-import Project from '../components/Project';
+import ProjectCard from '../components/ProjectCard';
 import projectList from '../projects.json';
 export default function Home({ projects }) {
   return (
@@ -36,7 +36,7 @@ export default function Home({ projects }) {
           <div className='pt-10 pb-10 w-full grid grid-cols-1 space-y-6'>
             {projects.map((project) => {
               return (
-                <Project key={project.id} name={project.name} description={project.description} url={project.url} repo={project.repo} />
+                <ProjectCard key={project.id} name={project.name} description={project.description} url={project.url} repo={project.repo} />
               )
             })}
           </div>
