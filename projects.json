@@ -1,25 +1,32 @@
 {
   "projects": [
     {
-    "id": 1,
-    "name": "Project 1",
-    "description": "I built a small art wall powered by the Solana blockchain where any user on the blockchain can submit art and receive tips in SOL for their contribution.",
-    "url": "https://example.com",
-    "repo": "https://github.com/heyztb/examplerepo"
+      "id": 1,
+      "name": "Crypto Art Wall",
+      "description": "I built a small art wall powered by the Solana blockchain where any user can upload art which will then be uploaded to IPFS, and the resulting content identifier is stored in Solana.",
+      "url": "https://gif-portal-starter-murex-delta.vercel.app/",
+      "repo": "https://github.com/heyztb/crypto-art-wall"
     },
     {
-    "id": 2,
-    "name": "Project 1",
-    "description": "I built a small art wall powered by the Solana blockchain where any user on the blockchain can submit art and receive tips in SOL for their contribution.",
-    "url": "https://example.com",
-    "repo": "https://github.com/heyztb/examplerepo"
+      "id": 2,
+      "name": "Metaplex Test Collection",
+      "description": "I built a small NFT collection on the Solana Devnet. Metaplex makes it very easy to setup a minting website for an NFT collection, which is what this project is. I minted all of the NFTs in development though, sorry!",
+      "url": "https://nft-drop-starter-project-ten-sepia.vercel.app/",
+      "repo": "https://github.com/heyztb/nft-drop-starter-project"
     },
     {
-    "id": 3,
-    "name": "Project 1",
-    "description": "I built a small art wall powered by the Solana blockchain where any user on the blockchain can submit art and receive tips in SOL for their contribution.",
-    "url": "https://example.com",
-    "repo": "https://github.com/heyztb/examplerepo"
+      "id": 3,
+      "name": "JavaScript-Only DAO",
+      "description": "I built a decentralized autonomous organization, complete with a membership NFT, governance token, and treasury. As well, the DAO cannot be hijacked as there is no admin. All proposals are submitted by the members and voted upon by those who hold the governance token. This project is powered by thirdweb (check them out!).",
+      "url": "https://buildspace-dao-starter-gilt-zeta.vercel.app/",
+      "repo": "https://github.com/heyztb/buildspace-dao-starter"
+    },
+    {
+      "id": 4,
+      "name": "Matic Name Service",
+      "description": "I built a decentralized naming service based on the Ethereum Name Service. It is deployed on Polygon's Mumbai testnet, and allows users to register their very own .matic domain name.",
+      "url": "https://domain-starter-self.vercel.app/",
+      "repo": "https://github.com/heyztb/polygon-domain-service"
     }
   ]
 }

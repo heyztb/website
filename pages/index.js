@@ -1,54 +1,54 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import profilePic from '../public/profile.jpg';
-import ProjectCard from '../components/ProjectCard';
-import projectList from '../projects.json';
-export default function Home({ projects }) {
+import Head from "next/head"
+import Image from "next/image"
+import profilePic from "../public/profile.jpg"
+import MenuBar from "../components/MenuBar"
+import SideLinksList from "../components/SideLinksList"
+export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen bg-slate-800">
       <Head>
         <title>ztb</title>
-        <meta name="description" content="my portfolio for the year two thousand and twenty-two" />
+        <meta
+          name="description"
+          content="my portfolio for the year two thousand and twenty-two"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <div className="h-full w-full bg-neutral-50">
-          <div className='md:pt-10 mx-auto space-y-6'>
-            <div className="mx-auto pt-6 md:pt-0 w-72 md:w-36 md:h-auto">
-              <Image src={profilePic} alt="a picture of me" className='rounded'/>
-            </div>
-            <h1 className='text-6xl md:text-5xl text-center'>hi, my name is zach</h1>
-            <p className='text-2xl text-center'>i&apos;m building things for web3</p>
-            <div className="text-center space-x-12">
-              <a className='underline underline-offset-4' href="https://github.com/heyztb" target="_blank" rel="noreferrer">
-                github
-              </a>
-              <a className='underline underline-offset-4' href="https://ztb.hashnode.dev" target="_blank" rel="noreferrer">
-                blog
-              </a>
-              <a className='underline underline-offset-4' href="https://twitter.com/heyztb" target="_blank" rel="noreferrer">
-                twitter
-              </a>
-            </div>
+      <MenuBar />
+      <SideLinksList />
+      <main className="h-screen w-full max-w-[1600px] py-0 px-6 md:px-24 lg:px-36 my-0 mx-auto bg-slate-800">
+        <section className="flex flex-col justify-center items-start min-h-screen max-w-5xl p-0 bg-slate-800">
+          <div>
+            <h1 className="ml-1 mb-4 text-[#7851a9] font-mono text-lg lg:text-xl">
+              Hi, my name is
+            </h1>
           </div>
-          <div className="pt-10 mx-auto w-[66%] border-b shadow-neutral-50 shadow-sm"></div>
-          <div className='pt-10 pb-10 w-full grid grid-cols-1 space-y-6'>
-            {projects.map((project) => {
-              return (
-                <ProjectCard key={project.id} name={project.name} description={project.description} url={project.url} repo={project.repo} />
-              )
-            })}
+          <div>
+            <h2 className="m-0 text-7xl font-semibold text-slate-200">
+              Zachary Blake
+            </h2>
           </div>
-        </div>
+          <div>
+            <h3 className="mt-3 text-slate-500 text-7xl font-semibold">
+              Web3 dev.
+            </h3>
+          </div>
+          <div>
+            <p className="max-w-xl mt-5 text-slate-500">
+              I&apos;m a web developer currently making the transition from Web2
+              to Web3. I am super passionate about crypto and am excited to
+              build the next generation of the Internet.
+            </p>
+          </div>
+          <div>
+            <a href="https://ztb.hashnode.dev" rel="noreferrer" target="_blank">
+              <button className="w-64 outline outline-[1.5px] outline-[#7851a9] hover:bg-opacity-10 hover:bg-purple-500 font-mono font-medium p-4 mt-4 text-[#7851a9] text-sm rounded transition-all ease-in">
+                Check out my blog!
+              </button>
+            </a>
+          </div>
+        </section>
       </main>
-
-      <footer>
-      </footer>
     </div>
   )
-}
-
-export async function getServerSideProps(context) {
-  return { props: { projects: projectList.projects }}
 }
