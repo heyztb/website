@@ -4,11 +4,11 @@ import Link from "next/link"
 import Image from "next/image"
 import logo from "../public/logo.svg"
 
-export default function MenuBar() {
+export const Nav = () => {
   return (
     <Disclosure
       as="nav"
-      className={`bg-slate-800 pt-0 sm:pt-6 sticky top-0 z-50 transition-all ease-in-out pb-4 px-0 sm:px-4`}
+      className="bg-slate-900 pt-0 sm:pt-6 sticky top-0 z-50 transition-all ease-in-out"
     >
       {({ open }) => (
         <>
