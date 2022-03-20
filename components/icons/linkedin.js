@@ -1,4 +1,4 @@
-export function LinkedInLogo() {
+export const LinkedInLogo = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

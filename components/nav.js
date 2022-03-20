@@ -3,19 +3,81 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import Link from "next/link"
 import Image from "next/image"
 import logo from "../public/logo.svg"
+import tw from "tailwind-styled-components"
 
 export const Nav = () => {
+  const navLinks = [
+    {
+      name: "About",
+      url: "#about",
+    },
+    {
+      name: "Experience",
+      url: "#experience",
+    },
+    {
+      name: "Projects",
+      url: "#projects",
+    },
+    {
+      name: "Contact",
+      url: "#contact",
+    },
+  ]
+
+  const StyledAnchor = tw.a`
+    text-white
+    hover:bg-gray-700
+    px-3
+    py-2
+    rounded-md
+    text-sm
+    sm:text-xs
+    font-medium
+  `
+
+  const NavLink = ({ to, name }) => {
+    return (
+      <Link href={to} passHref>
+        <StyledAnchor>{name}</StyledAnchor>
+      </Link>
+    )
+  }
+
+  const ResumeButton = tw.a`
+    text-sky-400
+    outline
+    outline-1
+    outline-sky-400
+    hover:bg-opacity-10 
+    hover:bg-sky-400 
+    px-4
+    py-2 
+    rounded-sm
+    text-sm
+    sm:text-xs
+    font-medium
+  `
+
+  const ResumeLink = () => {
+    return (
+      <Link href="/resume.pdf" passHref>
+        <ResumeButton>Resume</ResumeButton>
+      </Link>
+    )
+  }
+
   return (
     <Disclosure
       as="nav"
-      className="bg-slate-900 pt-0 sm:pt-6 sticky top-0 z-50 transition-all ease-in-out"
+      className="bg-neutral-800 pt-0 sm:pt-6 sticky top-0 z-50 transition-all ease-in-out"
     >
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2">
-            <div className="relative flex items-center justify-between h-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="relative flex items-center justify-between h-12">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -25,10 +87,10 @@ export const Nav = () => {
                 </Disclosure.Button>
               </div>
 
-              {/* desktop menu */}
+              {/* logo */}
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
+                <div className="hidden sm:block">
+                  <div className="flex">
                     <Link href="/">
                       <a className="h-11 w-11 items-center">
                         <Image src={logo} alt="portfolio logo" />
@@ -37,34 +99,16 @@ export const Nav = () => {
                   </div>
                 </div>
               </div>
+
+              {/* desktop menu */}
               <div className="absolute inset-y-0 right-0 hidden items-center pr-2 sm:flex sm:static sm:inset-auto sm:ml-6 sm:pr-0 space-x-6">
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4 font-mono">
-                    <Link href="#about">
-                      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        About
-                      </a>
-                    </Link>
-                    <Link href="#experience">
-                      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        Experience
-                      </a>
-                    </Link>
-                    <Link href="#projects">
-                      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        Projects
-                      </a>
-                    </Link>
-                    <Link href="#contact">
-                      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        Contact
-                      </a>
-                    </Link>
-                    <Link href="/resume.pdf">
-                      <a className="text-[#7851a9] outline outline-1 outline-[#7851a9] hover:bg-opacity-10 hover:bg-purple-500 px-3 py-2 rounded-md text-sm font-medium">
-                        Resume
-                      </a>
-                    </Link>
+                    {navLinks &&
+                      navLinks.map(({ name, url }, i) => (
+                        <NavLink to={url} name={name} key={i} />
+                      ))}
+                    <ResumeLink />
                   </div>
                 </div>
               </div>
@@ -81,41 +125,15 @@ export const Nav = () => {
             leaveTo="transform scale-95 opacity-0"
           >
             <Disclosure.Panel className="sm:hidden w-full">
-              <div className="w-full h-screen bg-slate-800 px-2 space-y-6 mx-auto flex flex-col">
+              <div className="w-full h-screen px-2 space-y-6 mx-auto flex flex-col justify-center">
+                {navLinks &&
+                  navLinks.map(({ name, url }, i) => (
+                    <Disclosure.Button key={i}>
+                      <NavLink to={url} name={name} />
+                    </Disclosure.Button>
+                  ))}
                 <Disclosure.Button>
-                  <Link href="#about">
-                    <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                      About
-                    </a>
-                  </Link>
-                </Disclosure.Button>
-                <Disclosure.Button>
-                  <Link href="#experience">
-                    <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                      Experience
-                    </a>
-                  </Link>
-                </Disclosure.Button>
-                <Disclosure.Button>
-                  <Link href="#projects">
-                    <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                      Projects
-                    </a>
-                  </Link>
-                </Disclosure.Button>
-                <Disclosure.Button>
-                  <Link href="#contact">
-                    <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                      Contact
-                    </a>
-                  </Link>
-                </Disclosure.Button>
-                <Disclosure.Button>
-                  <Link href="/resume.pdf">
-                    <a className="text-[#7851a9] outline outline-1 outline-[#7851a9] hover:bg-opacity-10 hover:bg-purple-100 px-3 py-2 rounded-md text-sm font-medium">
-                      Resume
-                    </a>
-                  </Link>
+                  <ResumeLink />
                 </Disclosure.Button>
               </div>
             </Disclosure.Panel>
