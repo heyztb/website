@@ -1,11 +1,78 @@
+import { useState, useEffect, useMemo } from "react"
 import { Disclosure, Transition } from "@headlessui/react"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import Link from "next/link"
 import Image from "next/image"
 import logo from "../public/logo.svg"
 import tw from "tailwind-styled-components"
+import { useScrollDirection, usePrefersReducedMotion } from "@hooks"
+
+const StyledNav = tw.nav`
+    bg-neutral-100 dark:bg-neutral-800
+    h-12
+    pt-0 sm:pt-6
+    sticky top-0
+    z-50
+    transition-all ease-in-out
+    ${(p) =>
+      p.$scrollDirection === "up" &&
+      !p.$scrolledToTop &&
+      "h-20 motion-safe:translate-y-0 motion-safe:bg-neutral-100 motion-safe:dark:bg-neutral-800 motion-safe:shadow-lg"}
+    ${(p) =>
+      p.$scrollDirection === "down" &&
+      !p.$scrolledToTop &&
+      "h-20 motion-safe:-translate-y-20 motion-safe:shadow-lg"}
+  `
+
+const StyledAnchor = tw.a`
+    text-black
+    dark:text-white
+    hover:bg-gray-100
+    hover:dark:bg-gray-700
+    px-3
+    py-2
+    rounded-md
+    text-sm
+    sm:text-xs
+    font-medium
+  `
+
+const NavLink = ({ to, name }) => {
+  return (
+    <Link href={to} passHref>
+      <StyledAnchor>{name}</StyledAnchor>
+    </Link>
+  )
+}
+
+const ResumeButton = tw.a`
+    text-sky-400
+    outline
+    outline-1
+    outline-sky-400
+    hover:bg-opacity-10 
+    hover:bg-sky-400 
+    px-4
+    py-2 
+    rounded-sm
+    text-sm
+    sm:text-xs
+    font-medium
+  `
+
+const ResumeLink = () => {
+  return (
+    <Link href="/resume.pdf" passHref>
+      <ResumeButton>Resume</ResumeButton>
+    </Link>
+  )
+}
 
 export const Nav = () => {
+  const scrollDirection = useScrollDirection()
+  const [scrolledToTop, setScrolledToTop] = useState(true)
+  const prefersReducedMotion = usePrefersReducedMotion()
+
   const navLinks = [
     {
       name: "About",
@@ -25,59 +92,33 @@ export const Nav = () => {
     },
   ]
 
-  const StyledAnchor = tw.a`
-    text-black
-    dark:text-white
-    hover:bg-gray-100
-    hover:dark:bg-gray-700
-    px-3
-    py-2
-    rounded-md
-    text-sm
-    sm:text-xs
-    font-medium
-  `
-
-  const NavLink = ({ to, name }) => {
-    return (
-      <Link href={to} passHref>
-        <StyledAnchor>{name}</StyledAnchor>
-      </Link>
-    )
+  const handleScroll = () => {
+    setScrolledToTop(window.scrollY < 50)
+    console.log(window.scrollY)
   }
 
-  const ResumeButton = tw.a`
-    text-sky-400
-    outline
-    outline-1
-    outline-sky-400
-    hover:bg-opacity-10 
-    hover:bg-sky-400 
-    px-4
-    py-2 
-    rounded-sm
-    text-sm
-    sm:text-xs
-    font-medium
-  `
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
 
-  const ResumeLink = () => {
-    return (
-      <Link href="/resume.pdf" passHref>
-        <ResumeButton>Resume</ResumeButton>
-      </Link>
-    )
-  }
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [prefersReducedMotion])
 
   return (
     <Disclosure
-      as="nav"
-      className="bg-neutral-100 dark:bg-neutral-800 pt-0 sm:pt-6 sticky top-0 z-50 transition-all ease-in-out"
+      as={StyledNav}
+      $scrollDirection={scrollDirection}
+      $scrolledToTop={scrolledToTop}
     >
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto">
-            <div className="relative flex items-center justify-between h-12">
+            <div className="relative flex items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
