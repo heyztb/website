@@ -30,7 +30,8 @@ export const SEO = () => {
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
 
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      <link rel="icon" href="/favicon.png" type="image/png" />
     </Head>
   )
 }
