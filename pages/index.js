@@ -1,4 +1,4 @@
-import { Hero } from "../components/hero"
+import { Hero } from "@components/sections"
 import tw from "tailwind-styled-components"
 export default function Home() {
   const Main = tw.main`

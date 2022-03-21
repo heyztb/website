@@ -1,6 +1,6 @@
 {
-  "name": "portfolio22",
-  "private": true,
+  "name": "website",
+  "author": "Zachary Blake <ztb@pm.me>",
   "repository": {
     "type": "git",
     "url": "https://github.com/heyztb/website"

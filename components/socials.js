@@ -1,7 +1,9 @@
-import { GithubLogo } from "./icons/github"
-import { LinkedInLogo } from "./icons/linkedin"
-import { TwitterLogo } from "./icons/twitter"
-import { MirrorLogo } from "./icons/mirror"
+import {
+  GithubLogo,
+  LinkedInLogo,
+  MirrorLogo,
+  TwitterLogo,
+} from "@components/icons"
 import tw from "tailwind-styled-components"
 
 export const Socials = () => {

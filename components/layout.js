@@ -1,7 +1,5 @@
 import React from "react"
-import { Nav } from "./nav"
-import { SEO } from "./seo"
-import { Socials } from "./socials"
+import { Nav, SEO, Socials } from "@components"
 
 export const Layout = ({ children }) => {
   return (
