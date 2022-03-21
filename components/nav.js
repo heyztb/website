@@ -9,11 +9,11 @@ import { useScrollDirection, usePrefersReducedMotion } from "@hooks"
 
 const StyledNav = tw.nav`
     bg-neutral-100 dark:bg-neutral-800
-    h-12
+    h-20
     pt-0 sm:pt-6
     sticky top-0
     z-50
-    transition-all ease-in-out
+    transition duration-300 ease-in-out
     ${(p) =>
       p.$scrollDirection === "up" &&
       !p.$scrolledToTop &&
