@@ -26,8 +26,10 @@ export const Nav = () => {
   ]
 
   const StyledAnchor = tw.a`
-    text-white
-    hover:bg-gray-700
+    text-black
+    dark:text-white
+    hover:bg-gray-100
+    hover:dark:bg-gray-700
     px-3
     py-2
     rounded-md
@@ -70,7 +72,7 @@ export const Nav = () => {
   return (
     <Disclosure
       as="nav"
-      className="bg-neutral-800 pt-0 sm:pt-6 sticky top-0 z-50 transition-all ease-in-out"
+      className="bg-neutral-100 dark:bg-neutral-800 pt-0 sm:pt-6 sticky top-0 z-50 transition-all ease-in-out"
     >
       {({ open }) => (
         <>
@@ -92,7 +94,7 @@ export const Nav = () => {
                 <div className="hidden sm:block">
                   <div className="flex">
                     <Link href="/">
-                      <a className="h-11 w-11 items-center">
+                      <a className="h-11 w-11 items-center select-none p-2 rounded bg-neutral-800 dark:bg-transparent">
                         <Image src={logo} alt="portfolio logo" />
                       </a>
                     </Link>

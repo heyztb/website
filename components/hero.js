@@ -21,7 +21,8 @@ export const Hero = () => {
     `
 
   const SecondaryHeading = tw.h2`
-    text-white
+    text-black
+    dark:text-white
     text-5xl
     lg:text-6xl
     font-semibold
@@ -29,10 +30,22 @@ export const Hero = () => {
   `
 
   const TertiaryHeading = tw.h3`
-    text-white
+    text-black
+    dark:text-white
     font-semibold
     text-5xl
     lg:text-6xl
+  `
+
+  const Description = tw.p`
+    max-w-lg
+    mt-5
+    text-neutral-800
+    dark:text-neutral-100
+  `
+
+  const CTALink = tw.span`
+    text-sky-400  
   `
 
   const CTAButton = tw.button`
@@ -42,7 +55,7 @@ export const Hero = () => {
    font-mono font-medium 
    p-4 mt-12 lg:mt-8 
    text-sky-400 text-sm 
-   rounded 
+   rounded-sm
    transition-all ease-in 
   `
 
@@ -51,16 +64,16 @@ export const Hero = () => {
       <PrimaryHeading>Hey 👋🏻</PrimaryHeading>
       <SecondaryHeading>My name is</SecondaryHeading>
       <TertiaryHeading>Zachary Blake</TertiaryHeading>
-      <p className="max-w-lg mt-5 text-neutral-100">
+      <Description>
         I&apos;m a full-stack web developer that is driven by buildng cool
         things I believe will add value to the lives of those who use it.
         Currently I am focused on building a new way for people to find and
         verify talent with the{" "}
-        <span className="text-sky-400">
+        <CTALink>
           <a href="https://github.com/posp-so">Proof of Skill Protocol</a>
-        </span>
+        </CTALink>
         {"."}
-      </p>
+      </Description>
       <a
         href="https://mirror.xyz/0x55241577E66d4Bf1dd4577090C970F8e4f509cC1"
         rel="noreferrer"

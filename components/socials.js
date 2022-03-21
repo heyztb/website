@@ -41,7 +41,8 @@ export const Socials = () => {
     after:h-[90px]
     after:mx-auto
     after:my-0
-    after:bg-slate-300
+    after:bg-neutral-900
+    after:dark:bg-neutral-300
   `
 
   const StyledLink = tw.li`
@@ -50,7 +51,8 @@ export const Socials = () => {
     hover:-translate-y-1
     transition-all
     ease-in-out
-    text-white
+    text-black
+    dark:text-white
     hover:text-sky-400
   `
 
