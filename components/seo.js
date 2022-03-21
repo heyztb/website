@@ -2,7 +2,7 @@ import Head from "next/head"
 
 export const SEO = () => {
   const seo = {
-    title: "ztb",
+    title: "Zachary Blake",
     description: "my portfolio for the year two thousand and twenty-two",
     url: "https://zach.gm",
     twitterUsername: "@heyztb",
@@ -11,7 +11,7 @@ export const SEO = () => {
 
   return (
     <Head>
-      <title>ztb</title>
+      <title>{seo.title}</title>
 
       <meta
         name="description"
