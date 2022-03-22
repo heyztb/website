@@ -8,6 +8,7 @@ export const Hero = () => {
     max-w-7xl
     justify-center
     items-center
+    pb-24
     `
 
   const PrimaryHeading = tw.h1`

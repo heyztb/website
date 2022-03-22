@@ -5,6 +5,8 @@ const StyledAboutSection = tw.section`
   flex-col
   max-w-5xl
   min-h-screen
+  justify-center
+  items-center
 `
 
 export const About = () => {

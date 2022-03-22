@@ -1,4 +1,7 @@
 export { Nav } from "./nav"
+export { Menu } from "./menu"
 export { Layout } from "./layout"
 export { SEO } from "./seo"
 export { Socials } from "./socials"
+export { NavLink } from "./link"
+export { ResumeLink } from "./resume"
