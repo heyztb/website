@@ -11,6 +11,7 @@ const StyledAboutSection = tw.section`
   max-w-4xl
   w-full
   min-h-screen
+  py-24
 `
 
 const SectionHeading = tw.h1`
