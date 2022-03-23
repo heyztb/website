@@ -5,7 +5,8 @@
       "@components": ["components/"],
       "@components/*": ["components/*"],
       "@hooks": ["hooks/"],
-      "@config": ["config.js"]
+      "@config": ["config.js"],
+      "@utils": ["utils/"]
     }
   }
 }

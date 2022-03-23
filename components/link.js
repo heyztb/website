@@ -4,7 +4,7 @@ import tw from "tailwind-styled-components"
 const StyledAnchor = tw.a`
     text-black
     dark:text-white
-    hover:bg-gray-100
+    hover:bg-gray-200
     hover:dark:bg-gray-700
     px-3
     py-2

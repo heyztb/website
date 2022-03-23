@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 import { Nav, SEO, Socials } from "@components"
 
 export const Layout = ({ children }) => {
@@ -10,4 +11,8 @@ export const Layout = ({ children }) => {
       {children}
     </React.Fragment>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
