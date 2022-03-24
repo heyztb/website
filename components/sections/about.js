@@ -38,11 +38,34 @@ const StyledAboutText = tw.div`
 
 const StyledPicture = tw.div`
   w-3/4
-  my-2
+  my-4
   mx-auto
 
   md:relative
   md:max-w-xs
+`
+
+const SkillsList = tw.ul`
+  grid
+  grid-cols-2
+  gap-y-1
+  overflow-hidden
+  list-none
+`
+
+const SkillsListItem = tw.li`
+  relative
+  mb-3
+  pl-5
+  font-mono
+  text-xs
+
+  before:content-['▹']
+  before:absolute
+  before:left-0
+  before:text-sky-400
+  before:text-xs
+  before:leading-3
 `
 
 export const About = () => {
@@ -61,6 +84,15 @@ export const About = () => {
     }
     animate()
   }, [prefersReducedMotion])
+
+  const skills = [
+    "JavaScript (ES6+)",
+    "TypeScript",
+    "React",
+    "Svelte",
+    "Node.js",
+    "Golang",
+  ]
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -87,6 +119,15 @@ export const About = () => {
               in my spare time. The plan is to build a new way for people to
               find and verify talent. I think it&apos;s pretty cool.
             </p>
+            <p className="pb-4">
+              These are some of the technologies I&apos;m most comfortable with:
+            </p>
+            <SkillsList>
+              {skills &&
+                skills.map((skill, i) => (
+                  <SkillsListItem key={i}>{skill}</SkillsListItem>
+                ))}
+            </SkillsList>
           </StyledAboutText>
           <StyledPicture>
             <Image
